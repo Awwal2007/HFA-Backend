@@ -9,6 +9,8 @@ const messageSchema = new mongoose.Schema({
     feedback4: {type: String},
     feedback5: {type: String},
     feedback6: {type: String}
+},{
+    timestamps: true
 })
 
 const messageModel = mongoose.model('message', messageSchema)
