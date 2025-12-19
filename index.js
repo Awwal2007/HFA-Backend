@@ -5,6 +5,7 @@ const morgan = require("morgan");
 require('./Config/connectToDb')
 const dotenv = require('dotenv');
 const messageRouter = require('./Router/messageRouter');
+const authRouter = require('./Router/authRouter');
 dotenv.config()
 
 
@@ -14,6 +15,7 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
 app.use('/api/v1/message', messageRouter)
+app.use('/api/v1/auth', authRouter)
 
 
 app.get("/", (req, res)=>{res.send("Welcome to HFA Api version 1.0")})

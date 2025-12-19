@@ -1,6 +1,9 @@
 const messageModel = require("../Model/message");
+// const sendSuccessfulFeedbackEmail = require("../Services/Nodemailer/sendSuccessfullFeedbackEmail");
+// const sendSuccessfulFeedbackEmailToAdmin = require("../Services/Nodemailer/sendSuccessfullFeedbackEmailToAdmin");
 
-const sendMessage = async(req, res) => {    
+const sendMessage = async(req, res) => {   
+    const {email, name} = req.body 
     try {
         if(!req.body || Object.keys(req.body).length === 0){
             return res.status(500).json({
@@ -17,6 +20,11 @@ const sendMessage = async(req, res) => {
                 message: 'failed to send message'
             })
         }
+
+        const userFirstName = name.split(" ")[0]
+
+        // await sendSuccessfulFeedbackEmail(email, userFirstName)
+        // await sendSuccessfulFeedbackEmailToAdmin(userFirstName)
 
         res.status(200).json({
             status: 'success',

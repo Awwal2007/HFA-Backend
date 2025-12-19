@@ -1,26 +1,28 @@
-const nodemailer = require("nodemailer");
-const dotenv = require("dotenv")
-dotenv.config()
-const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    service: "gmail",
-    secure: false,
-    port: 587,
-    auth: {
-        user: process.env.Nodemailer_User,
-        pass: process.env.Nodemailer_Pass
-    },
-    tls: {
-        rejectUnauthorized: false, // Bypasses certificate validation
-    },
+// const nodemailer = require("nodemailer");
+// require("dotenv").config();
 
-})
-module.exports = transporter
+// const transporter = nodemailer.createTransport({
+//   host: "smtp.ionos.com",
+//   port: 587,
+//   secure: false,
+//   auth: {
+//     user: process.env.NODEMAILER_USER,
+//     pass: process.env.NODEMAILER_PASS,
+//   },
+//   tls: {
+//     servername: "smtp.ionos.com",
 
-transporter.verify((err,success)=>{
-    if(success){
-        console.log("Ready to send email");        
-    }else{
-        console.log(err);        
-    }
-})
+//     rejectUnauthorized: false,
+//   },
+  
+// });
+
+// transporter.verify((error) => {
+//   if (error) {
+//     console.error("SMTP connection failed:", error.message);
+//   } else {
+//     console.log("✅ SMTP server is ready to send emails");
+//   }
+// });
+
+// module.exports = transporter;

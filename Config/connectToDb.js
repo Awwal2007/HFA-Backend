@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 dotenv.config()
 
-const mongoUri = process.env.mongo_uri
+const mongoUri = process.env.MONGO_URI
 
 const connectToDb = () =>{
     try {
