@@ -55,5 +55,28 @@ const getMessage = async (req, res) => {
     }
 }
 
-module.exports = {sendMessage, getMessage}
+const changeMessageStatus = async(req, res) =>{
+    const {id} = req.params
+    const status = req.body
+    try {
+        const message = await messageModel.findByIdAndUpdate(id, status)
+
+        if(!message){
+            return res.status(400).json({
+                status: "error",
+                message: "failed to update status"
+            })
+        }
+
+        res.status(201).json({
+            status: "success",
+            message: `Message status updated to ${status}`
+        })
+        
+    } catch (error) {
+        console.log(error);        
+    }
+}
+
+module.exports = {sendMessage, getMessage, changeMessageStatus}
 

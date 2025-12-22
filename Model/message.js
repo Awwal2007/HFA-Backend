@@ -8,7 +8,12 @@ const messageSchema = new mongoose.Schema({
     feedback3: {type: String},
     feedback4: {type: String},
     feedback5: {type: String},
-    feedback6: {type: String}
+    feedback6: {type: String},
+    status: {
+        type: String,
+        // enum: ["Pending", "Done", "In-progress"],
+        default: "Pending"
+    }
 },{
     timestamps: true
 })
